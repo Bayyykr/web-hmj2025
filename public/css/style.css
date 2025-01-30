@@ -1,0 +1,88 @@
+body{
+  padding: 0px;
+}
+
+/* Navbar */
+.navbar {
+    z-index: 3;
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 15px 0;
+    /*Ukuranpaddingawal*/
+    -webkit-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  }
+  
+.navbar-transparent {
+    background: transparent;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.navbar-scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Opsional */
+    padding: 10px ; /* Ukuran padding setelah scroll */
+}
+  
+.navbar-transparent .navbar-brand {
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    /*Ukuranfontawal*/transition: font-size 0.3s ease-in-out;
+    -webkit-transition: font-size 0.3s ease-in-out;
+    -moz-transition: font-size 0.3s ease-in-out;
+    -ms-transition: font-size 0.3s ease-in-out;
+    -o-transition: font-size 0.3s ease-in-out;
+}
+  
+.navbar-scrolled .navbar-brand {
+    font-size: 16px;
+    /*Ukuranfontsetelahscroll*/font-weight: 700;
+    color: #000000;
+    transition: font-size 0.3s ease-in-out;
+    -webkit-transition: font-size 0.3s ease-in-out;
+    -moz-transition: font-size 0.3s ease-in-out;
+    -ms-transition: font-size 0.3s ease-in-out;
+    -o-transition: font-size 0.3s ease-in-out;
+}
+  
+.navbar-scrolled .navbar-brand:hover {
+    font-size: 16px; /* Ukuran font setelah scroll */
+    color: #000000;
+}
+  
+.nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar-scrolled .nav-link{
+  color: blue !important;
+}
+  
+.nav-item.active .nav-link {
+    border-bottom: 2px solid #000000;
+    font-weight: bold;
+    transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+}
+  
+.nav-link:hover {
+    font-weight: bold;
+    transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+    -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+}
+
+#hero {
+  padding-top: 80px;
+  background-color: red;
+}
+
