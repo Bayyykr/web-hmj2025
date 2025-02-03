@@ -75,15 +75,11 @@ body {
 }
 
 .navbar-scrolled .nav-link {
-  background: linear-gradient(73.1deg, #7FDFFD 32.63%, #4C8597 59.97%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: black !important;
 }
 
 .navbar-scrolled .nav-link:hover {
-  background: linear-gradient(0deg, #4C8597, #4C8597);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #4C8597 !important;
 }
 
 .nav-item.active .nav-link {
@@ -132,6 +128,31 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  display: none;
+}
+
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-toggle[aria-expanded="true"] {
+  font-weight: bold;
+}
+
+.navbar-scrolled .dropdown-toggle[aria-expanded="true"] {
+  background: linear-gradient(0deg, #4C8597, #4C8597);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .collapse .buton .kwu {
   margin-top: 16px;
 }
@@ -167,13 +188,12 @@ body {
 }
 
 #hero .container-fluid .left {
-  background: white;
-  width: 450px;
+  width: 500px;
   height: 350px;
 }
 
 #hero .container-fluid .welcome {
-  width: 180px;
+  width: 147px;
   height: 38px;
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -183,15 +203,21 @@ body {
   background: linear-gradient(90deg, #4C8597 0%, #7FDFFD 98%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-size: 15px;
+  position: relative;
+  z-index: 1;
+  left: 108px;
+  top: 12px;
 }
 
-#hero .container-fluid .welcome h4{
-  font-size: 18px;
+#hero .container-fluid .welcome h4 {
+  font-size: 16px;
   text-align: center;
   padding-top: 8px;
+  color: white;
+  font-weight: 700  ;
 }
 
-#hero .container-fluid .hmjti{
+#hero .container-fluid .hmjti {
   width: 261px;
   height: 66px;
   border-radius: 10px;
@@ -201,10 +227,64 @@ body {
   -o-border-radius: 10px;
   background: linear-gradient(90deg, #4C8597 0%, #7FDFFD 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  left: 50px;
+  position: relative;
+  text-align: center;
+  align-content: center;
 }
 
-#hero .container-fluid .hmjti h2{
-  font-size: 36px;
-  text-align: center;
+#hero .container-fluid .hmjti h2 {
+  font-size: 30px;
   padding-top: 10px;
+  font-weight: 700;
+  color: white;
+}
+
+#hero .container-fluid .deskripsi {
+  font-size: 16px;
+  width: 435px;
+  height: 145px;
+  position: relative;
+  left: 51px;
+  margin-top: 25px;
+}
+
+#hero .container-fluid .discoverme {
+  margin-top: 25px;
+  display: flex;
+  gap: 25px;
+  position: relative;
+  left: 51px;
+}
+
+#hero .container-fluid .discoverme .discover {
+  width: 261px;
+  height: 66px;
+  border-radius: 10px ;
+  background: linear-gradient(90deg, #4C8597 0%, #7FDFFD 99.99%);
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  align-content: center;
+  -webkit-border-radius: 10px ;
+  -moz-border-radius: 10px ;
+  -ms-border-radius: 10px ;
+  -o-border-radius: 10px ;
+  font-weight: 700;
+}
+
+#hero .container-fluid .discoverme .iconplay {
+  justify-content: center;
+  align-content: center;
+  width: 66.35px;
+  height: 66px;
+  padding-left: 20px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #4275BB 0%, #64A5FF 100%);
+  box-shadow: 0px 4px 4px 0px #00000040 inset;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
