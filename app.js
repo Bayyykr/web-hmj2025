@@ -12,7 +12,7 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     res.render('index',{
-        title: 'Halaman About',
+        title: 'HMJ TI 2025',
         layout: 'layouts/main-layout',
         css: '/css/style.css',
         js: '/js/script.js'

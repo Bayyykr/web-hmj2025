@@ -1,88 +1,210 @@
-body{
+body {
   padding: 0px;
 }
 
 /* Navbar */
 .navbar {
-    z-index: 3;
-    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-    padding: 15px 0;
-    /*Ukuranpaddingawal*/
-    -webkit-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-    -moz-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-    -ms-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-    -o-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
-  }
-  
+  z-index: 3;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding: 15px 0;
+  /*Ukuranpaddingawal*/
+  -webkit-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  -ms-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+  -webkit-transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
 .navbar-transparent {
-    background: transparent;
-    border-bottom: 1px solid rgb(199, 199, 199);
+  background: transparent;
+  border-bottom: 1px solid rgb(199, 199, 199);
 }
 
 .navbar-scrolled {
-    background-color: #ffffff !important;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Opsional */
-    padding: 10px ; /* Ukuran padding setelah scroll */
-}
-  
-.navbar-transparent .navbar-brand {
-    color: white;
-    font-weight: 700;
-    font-size: 20px;
-    /*Ukuranfontawal*/transition: font-size 0.3s ease-in-out;
-    -webkit-transition: font-size 0.3s ease-in-out;
-    -moz-transition: font-size 0.3s ease-in-out;
-    -ms-transition: font-size 0.3s ease-in-out;
-    -o-transition: font-size 0.3s ease-in-out;
-}
-  
-.navbar-scrolled .navbar-brand {
-    font-size: 16px;
-    /*Ukuranfontsetelahscroll*/font-weight: 700;
-    color: #000000;
-    transition: font-size 0.3s ease-in-out;
-    -webkit-transition: font-size 0.3s ease-in-out;
-    -moz-transition: font-size 0.3s ease-in-out;
-    -ms-transition: font-size 0.3s ease-in-out;
-    -o-transition: font-size 0.3s ease-in-out;
-}
-  
-.navbar-scrolled .navbar-brand:hover {
-    font-size: 16px; /* Ukuran font setelah scroll */
-    color: #000000;
-}
-  
-.nav-link {
-    font-size: 16px;
-    font-weight: bold;
-    color: white !important;
+  /* background: rgba(255, 255, 255, 1); */
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Opsional */
+  padding: 10px;
+  /* Ukuran padding setelah scroll */
 }
 
-.navbar-scrolled .nav-link{
-  color: blue !important;
+.navbar-transparent .navbar-brand {
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  /*Ukuranfontawal*/
+  transition: font-size 0.3s ease-in-out;
+  -webkit-transition: font-size 0.3s ease-in-out;
+  -moz-transition: font-size 0.3s ease-in-out;
+  -ms-transition: font-size 0.3s ease-in-out;
+  -o-transition: font-size 0.3s ease-in-out;
 }
-  
-.nav-item.active .nav-link {
-    border-bottom: 2px solid #000000;
-    font-weight: bold;
-    transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+
+.navbar-scrolled .navbar-brand {
+  font-size: 16px;
+  /*Ukuranfontsetelahscroll*/
+  font-weight: 700;
+  color: #000000;
+  transition: font-size 0.3s ease-in-out;
+  -webkit-transition: font-size 0.3s ease-in-out;
+  -moz-transition: font-size 0.3s ease-in-out;
+  -ms-transition: font-size 0.3s ease-in-out;
+  -o-transition: font-size 0.3s ease-in-out;
 }
-  
+
+.navbar-scrolled .navbar-brand:hover {
+  font-size: 16px;
+  /* Ukuran font setelah scroll */
+  color: #000000;
+}
+
+.nav-link {
+  font-size: 16px;
+  /* font-weight: bold; */
+  color: white !important;
+}
+
 .nav-link:hover {
-    font-weight: bold;
-    transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
-    -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  font-weight: bold;
+  transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+}
+
+.navbar-scrolled .nav-link {
+  background: linear-gradient(73.1deg, #7FDFFD 32.63%, #4C8597 59.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-scrolled .nav-link:hover {
+  background: linear-gradient(0deg, #4C8597, #4C8597);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-item.active .nav-link {
+  border-bottom: 2px solid #000000;
+  font-weight: bold;
+  transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -webkit-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -moz-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -ms-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+  -o-transition: border-bottom 0.1s ease, font-weight 0.1s ease;
+}
+
+.collapse .buton {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 155px;
+  color: white;
+  border-radius: 10px;
+  background: rgba(215, 215, 215, 44%);
+  box-shadow: 1.5px 3px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.navbar-scrolled .collapse .buton {
+  background: black;
+}
+
+.navbar-scrolled .collapse .buton p {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-scrolled .collapse .buton p:hover {
+  background: linear-gradient(73.1deg, #7FDFFD 32.63%, #4C8597 59.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.collapse .buton .kwu {
+  margin-top: 16px;
+}
+
+.collapse .buton .icon {
+  width: 28px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 14px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background: linear-gradient(130.73deg, #5DDCA5 3.43%, #327659 100%);
+}
+
+.collapse .buton .icon img {
+  height: 20px;
 }
 
 #hero {
   padding-top: 80px;
-  background-color: red;
+  height: 100vh;
+  background-image: url('/img/bg_hero.png');
+  background-size: cover;
 }
 
+#hero .container-fluid {
+  align-content: center;
+}
+
+#hero .container-fluid .left {
+  background: white;
+  width: 450px;
+  height: 350px;
+}
+
+#hero .container-fluid .welcome {
+  width: 180px;
+  height: 38px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  background: linear-gradient(90deg, #4C8597 0%, #7FDFFD 98%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+}
+
+#hero .container-fluid .welcome h4{
+  font-size: 18px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+#hero .container-fluid .hmjti{
+  width: 261px;
+  height: 66px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background: linear-gradient(90deg, #4C8597 0%, #7FDFFD 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#hero .container-fluid .hmjti h2{
+  font-size: 36px;
+  text-align: center;
+  padding-top: 10px;
+}
