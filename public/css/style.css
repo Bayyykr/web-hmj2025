@@ -176,6 +176,8 @@ body {
   height: 20px;
 }
 
+/* HERO SECTION */
+
 #hero {
   padding-top: 80px;
   height: 100vh;
@@ -287,4 +289,13 @@ body {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+}
+
+/* ABOUT SECTION */
+#about{
+  background-color: #7FDFFD;
+  height: 100vh;
+  background-image: url('/img/about-cover.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
