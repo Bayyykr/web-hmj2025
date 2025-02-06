@@ -11,12 +11,12 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 //db
-const db = mysql.createConnection({
-    host: "localhost",
-    database: "hmj",
-    user: "root",
-    password: ""
-})
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     database: "hmj",
+//     user: "root",
+//     password: ""
+// })
 
 app.get('/', (req, res) => {
     res.render('index', {
@@ -36,45 +36,45 @@ app.get('/about', (req, res) => {
     })
 })
 
-db.connect((err) => {
-    if (err) throw err
-    console.log('Database connected')
-})
+// db.connect((err) => {
+//     if (err) throw err
+//     console.log('Database connected')
+// })
 
-const sql = `
-        SELECT 
-            artikel.*, 
-            kategori.nama_kategori, 
-            TO_BASE64(picture) as base64Image 
-        FROM artikel 
-        JOIN kategori ON artikel.id_kategori = kategori.id_kategori
-    `
+// const sql = `
+//         SELECT 
+//             artikel.*, 
+//             kategori.nama_kategori, 
+//             TO_BASE64(picture) as base64Image 
+//         FROM artikel 
+//         JOIN kategori ON artikel.id_kategori = kategori.id_kategori
+//     `
 
-app.get("/berita", (req, res) => {
-    db.query(sql, (err, result) => {
-        if (err) throw err
-        const datas = result.map(item => ({
-            ...item,
-            base64Image: item.base64Image ? `data:image/jpeg;base64,${item.base64Image}` : null
-        }))
+// app.get("/berita", (req, res) => {
+//     db.query(sql, (err, result) => {
+//         if (err) throw err
+//         const datas = result.map(item => ({
+//             ...item,
+//             base64Image: item.base64Image ? `data:image/jpeg;base64,${item.base64Image}` : null
+//         }))
 
-        res.render("berita", {
-            layout: 'layouts/main-layout',
-            css: '/css/berita.css',
-            js: '/js/berita.js',
-            datas: datas,
-            title: "ARTIKEL",
-            formatDate: (dateString) => {
-                const date = new Date(dateString);
-                return date.toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                });
-            }
-        })
-    })
-})
+//         res.render("berita", {
+//             layout: 'layouts/main-layout',
+//             css: '/css/berita.css',
+//             js: '/js/berita.js',
+//             datas: datas,
+//             title: "ARTIKEL",
+//             formatDate: (dateString) => {
+//                 const date = new Date(dateString);
+//                 return date.toLocaleDateString('en-GB', {
+//                     day: 'numeric',
+//                     month: 'short',
+//                     year: 'numeric'
+//                 });
+//             }
+//         })
+//     })
+// })
 
 app.use((req, res) => {
     res.status(404)
