@@ -103,69 +103,133 @@ document.addEventListener('DOMContentLoaded', function() {
 const dots = document.querySelectorAll('.dot');
 const cardsContainer = document.querySelector('.cards-container');
 const cards = document.querySelectorAll('.schedule-card');
-const cardHeight = document.querySelector('.schedule-card').offsetHeight + 17; // height + margin
+const cardHeight = document.querySelector('.schedule-card').offsetHeight + 20;
 
 // Clone the initial cards and append them to create infinite scroll effect
 function setupInfiniteScroll() {
-    // Clone all original cards
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        cardsContainer.appendChild(clone);
-        
-        // Add hover effects to both original and cloned cards
-        [card, clone].forEach(element => {
-            element.addEventListener('mouseover', () => {
-                element.style.transform = 'translateY(-5px)';
-                element.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+    // Clone many more sets for continuous infinite scroll
+    for (let i = 0; i < 100; i++) {  // Significantly increased clone sets
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            cardsContainer.appendChild(clone);
+            
+            clone.addEventListener('mouseover', () => {
+                clone.style.transform = 'translateY(-5px)';
+                clone.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                pauseAutoScroll();
             });
             
-            element.addEventListener('mouseout', () => {
-                element.style.transform = 'translateY(0)';
-                element.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+            clone.addEventListener('mouseout', () => {
+                clone.style.transform = 'translateY(0)';
+                clone.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+                resumeAutoScroll();
             });
         });
-    });
+    }
 }
 
-// Initialize current position and total cards
+// Initialize variables
 let currentPosition = 0;
 const totalOriginalCards = cards.length;
+let isAnimating = false;
+let currentDotIndex = 0;
+let autoScrollInterval;
+let isPaused = false;
+
+// Function to update dots
+function updateDots(index) {
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// Function to handle smooth scroll
+function smoothScroll(targetPosition, duration) {
+    const start = currentPosition;
+    const change = targetPosition - start;
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        currentPosition = start + change * progress;
+        cardsContainer.style.transform = `translateY(-${currentPosition}px)`;
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            isAnimating = false;
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Function to handle next slide
+function nextSlide() {
+    if (isAnimating || isPaused) return;
+    
+    currentDotIndex = (currentDotIndex + 1) % totalOriginalCards;
+    updateDots(currentDotIndex);
+
+    // Always move downward
+    currentPosition += cardHeight;
+    
+    isAnimating = true;
+    smoothScroll(currentPosition, 500);
+}
+
+// Auto scroll functions
+function startAutoScroll() {
+    autoScrollInterval = setInterval(nextSlide, 5000);
+}
+
+function pauseAutoScroll() {
+    isPaused = true;
+    clearInterval(autoScrollInterval);
+}
+
+function resumeAutoScroll() {
+    isPaused = false;
+    startAutoScroll();
+}
 
 // Handle pagination dots click
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-        // Update active dot
-        dots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
+        if (isAnimating) return;
+        pauseAutoScroll();
         
-        // Calculate new position
-        currentPosition = index * cardHeight;
+        const previousDotIndex = currentDotIndex;
+        currentDotIndex = index;
+        updateDots(index);
+
+        // Calculate position adjustment based on dot change
+        const dotDifference = index - previousDotIndex;
+        const adjustedPosition = currentPosition + (dotDifference * cardHeight);
         
-        // Smooth scroll to position
-        cardsContainer.style.transition = 'transform 0.5s ease';
-        cardsContainer.style.transform = `translateY(-${currentPosition}px)`;
+        isAnimating = true;
+        smoothScroll(adjustedPosition, 500);
         
-        // Check if we're at the end
-        if (index === totalOriginalCards - 1) {
-            // Wait for animation to complete
-            setTimeout(() => {
-                // Remove transition for instant jump
-                cardsContainer.style.transition = 'none';
-                currentPosition = 0;
-                cardsContainer.style.transform = `translateY(0)`;
-                
-                // Reset active dot
-                dots.forEach(d => d.classList.remove('active'));
-                dots[0].classList.add('active');
-                
-                // Restore transition after jump
-                setTimeout(() => {
-                    cardsContainer.style.transition = 'transform 0.5s ease';
-                }, 50);
-            }, 500);
-        }
+        setTimeout(resumeAutoScroll, 500);
     });
 });
 
-// Initialize infinite scroll
+// Add hover effects to original cards
+cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.style.transform = 'translateY(-5px)';
+        card.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+        pauseAutoScroll();
+    });
+    
+    card.addEventListener('mouseout', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+        resumeAutoScroll();
+    });
+});
+
+// Initialize
 setupInfiniteScroll();
+startAutoScroll();
