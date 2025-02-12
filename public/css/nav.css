@@ -1,7 +1,7 @@
 .navbar{
     transition: background-color 0.3s ease, box-shadow 0.3s ease;   
     height: 60px;
-    z-index: 1;
+    z-index: 100;
 }
 
 .navbar .container-fluid {
