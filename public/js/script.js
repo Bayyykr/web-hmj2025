@@ -105,14 +105,9 @@ const cards = document.querySelectorAll('.schedule-card');
 const cardHeight = 113; // Card height (93px) + margin (20px)
 const maxScrollCount = 100; // Maximum number of scrolls
 const visibleCards = 3; // Number of visible cards at once
-const eventImage = document.querySelector('.image-section img'); // Get the image element
+const eventImage = document.querySelector('.image-section img');
 
-// Array of image paths for each slide
-const images = [
-    '/img/schedule/kegiatan1.png',
-    '/img/schedule/kegiatan2.png',
-    '/img/schedule/kegiatan3.png'
-];
+const images = window.EVENT_IMAGES || [];
 
 let currentPosition = 0;
 let isAnimating = false;
@@ -121,10 +116,9 @@ let autoScrollInterval;
 let isPaused = false;
 let scrollCount = 0;
 let totalCards = 0;
-let currentImageIndex = 0; // Track current image index
+let currentImageIndex = 0;
 
 function preloadImages() {
-    // Preload all images to prevent flashing
     images.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -132,10 +126,8 @@ function preloadImages() {
 }
 
 function setupCards() {
-    // Clone original cards multiple times to allow for more scrolling
     const originalCards = Array.from(cards);
     
-    // Create multiple sets of clones
     for (let i = 0; i < 100; i++) {
         originalCards.forEach(card => {
             const clone = card.cloneNode(true);
@@ -146,24 +138,25 @@ function setupCards() {
     
     totalCards = cardsContainer.children.length;
 
-    // Set initial active state for the first card of each set
     const allCards = cardsContainer.querySelectorAll('.schedule-card');
     allCards.forEach((card, index) => {
         if (index % 3 === 0) {
             card.classList.add('active');
         }
     });
+
+    updateImage(0);
 }
 
 function updateImage(newIndex) {
-    // Only update if the image index has actually changed
-    if (currentImageIndex === newIndex) return;
+    // Normalize the index to stay within bounds (0-2)
+    newIndex = newIndex % 3;
     
-    // Create and prepare new image
+    if (currentImageIndex === newIndex || newIndex >= images.length) return;
+    
     const newImage = new Image();
     newImage.src = images[newIndex];
     
-    // Once new image is loaded, perform the transition
     newImage.onload = () => {
         eventImage.style.opacity = '0';
         
@@ -176,30 +169,26 @@ function updateImage(newIndex) {
 }
 
 function updateCardColors() {
-    // Get all cards (including clones)
     const allCards = cardsContainer.querySelectorAll('.schedule-card');
     
-    // Calculate which cards should be active based on current position
+    // Normalize the visible index to stay within 0-2 range
     const visibleIndex = Math.floor(currentPosition / cardHeight) % 3;
     
-    // Remove active class from all cards
     allCards.forEach(card => {
         card.classList.remove('active');
     });
     
-    // Add active class to cards at the current visible position
     for (let i = 0; i < allCards.length; i++) {
         if (i % 3 === visibleIndex) {
             allCards[i].classList.add('active');
         }
     }
 
-    // Update image based on visible index
     updateImage(visibleIndex);
 }
 
 function smoothScroll(targetPosition, duration) {
-    if (isAnimating || scrollCount >= maxScrollCount) return;
+    if (isAnimating) return;
 
     const start = currentPosition;
     const change = targetPosition - start;
@@ -224,7 +213,8 @@ function smoothScroll(targetPosition, duration) {
             isAnimating = false;
             scrollCount++;
 
-            if (scrollCount >= maxScrollCount) {
+            // Only check for max scroll count during auto-scroll
+            if (!isPaused && scrollCount >= maxScrollCount) {
                 pauseAutoScroll();
             }
         }
@@ -243,9 +233,10 @@ function addCardListeners(card) {
 }
 
 function nextSlide() {
-    if (isPaused || scrollCount >= maxScrollCount) return;
+    if (isPaused) return;
 
-    currentDotIndex = (currentDotIndex + 1) % dots.length;
+    // Keep currentDotIndex within bounds (0-2)
+    currentDotIndex = (currentDotIndex + 1) % 3;
     updateDots(currentDotIndex);
 
     const targetPosition = currentPosition + cardHeight;
@@ -253,12 +244,11 @@ function nextSlide() {
 }
 
 function startAutoScroll() {
-    // Delay the start of auto-scrolling to show initial active state
     setTimeout(() => {
-        if (scrollCount < maxScrollCount) {
+        if (!isPaused && scrollCount < maxScrollCount) {
             autoScrollInterval = setInterval(nextSlide, 3000);
         }
-    }, 1000); // 1 second delay before starting auto-scroll
+    }, 1000);
 }
 
 function pauseAutoScroll() {
@@ -278,26 +268,29 @@ function updateDots(index) {
     dots[index].classList.add('active');
 }
 
-// Handle dot clicks
+// Modified dots click handler
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-        if (scrollCount >= maxScrollCount) return;
-
+        if (isAnimating) return; // Prevent clicking while animating
+        
         pauseAutoScroll();
-
-        const rotations = Math.floor(currentPosition / (cardHeight * cards.length));
-        const basePosition = rotations * cardHeight * cards.length;
+        
+        // Calculate the nearest multiple of 3 cards for smooth transitions
+        const currentCardSet = Math.floor(currentPosition / (cardHeight * 3));
+        const basePosition = currentCardSet * cardHeight * 3;
         const targetPosition = basePosition + (index * cardHeight);
         
         currentDotIndex = index;
         updateDots(index);
-
-        smoothScroll(targetPosition, 500);
-        setTimeout(resumeAutoScroll, 500);
+        
+        // Use a longer duration for dot navigation to make it smoother
+        smoothScroll(targetPosition, 800);
+        
+        // Resume auto-scroll after a longer delay
+        setTimeout(resumeAutoScroll, 1000);
     });
 });
 
-// Add CSS for image transitions
 const style = document.createElement('style');
 style.textContent = `
     .image-section img {
@@ -306,17 +299,8 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Preload images before starting
 preloadImages();
-
-// Add listeners to original cards
 cards.forEach(card => addCardListeners(card));
-
-// Initialize
 setupCards();
-
-// Set initial dot state
 updateDots(0);
-
-// Start auto-scroll with delay
 startAutoScroll();

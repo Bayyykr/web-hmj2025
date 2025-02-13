@@ -1,3 +1,4 @@
+
 <div id="video-popup">
     <div id="video-container">
         <div id="close-button">&times;</div>
@@ -107,24 +108,23 @@
             <div class="image-section">
                 <img src="/img/schedule/kegiatan1.png" alt="Students in training session">
             </div>
-            
+
             <div class="schedule-section">
                 <div class="schedule-cards">
                     <div class="cards-container">
-                        <div class="schedule-card">
-                            <div class="date"><span>2 Agt</span>2025</div>
-                            <div class="event-title">LATIHAN DASAR KEPEMIMPINAN PERIODE 2024-2025</div>
-                        </div>
-                        
-                        <div class="schedule-card">
-                            <div class="date"><span>2 Agt</span>2025</div>
-                            <div class="event-title">LATIHAN DASAR KEPEMIMPINAN PERIODE 2026-2027</div>
-                        </div>
-                        
-                        <div class="schedule-card">
-                            <div class="date"><span>2 Agt</span>2025</div>
-                            <div class="event-title">LATIHAN DASAR KEPEMIMPINAN PERIODE 2028-2029</div>
-                        </div>
+                        <% events.forEach(event=> { %>
+                            <div class="schedule-card">
+                                <div class="date">
+                                    <span>
+                                        <%= event.formatted_date %>
+                                    </span>
+                                    <%= event.tahun %>
+                                </div>
+                                <div class="event-title">
+                                    <%= event.judul %>
+                                </div>
+                            </div>
+                            <% }); %>
                     </div>
                 </div>
 
@@ -137,17 +137,11 @@
         </main>
     </div>
 </section>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, id omnis vel voluptatem et alias, ab quos vitae
-    dolores accusamus rerum saepe repudiandae. Qui ratione suscipit aspernatur velit numquam labore fugit explicabo.
-    Distinctio suscipit libero maxime tempora placeat saepe in ea quod dolorem ex vel omnis, quas voluptatum asperiores
-    hic culpa, obcaecati adipisci. Ex nemo eos, unde commodi ducimus deserunt ad omnis amet. Molestiae obcaecati
-    excepturi enim aliquam voluptate ex, blanditiis ipsa recusandae pariatur soluta fuga facere tempora quam voluptates
-    provident nobis est optio delectus porro nemo impedit voluptas tenetur. Libero voluptatem nobis at culpa corporis
-    delectus asperiores ex ab, tempora, tenetur placeat est rerum explicabo id! Quia eius illo obcaecati! Vero ad
-    quibusdam dignissimos accusantium sequi obcaecati beatae itaque eaque repellat! Rem totam beatae molestiae molestias
-    voluptatum iusto asperiores pariatur omnis recusandae delectus, illo voluptas commodi neque qui repudiandae
-    perspiciatis nesciunt at id error, ab cum? Reprehenderit, sequi, perspiciatis architecto quisquam non debitis itaque
-    veritatis temporibus voluptatibus id deserunt in, aspernatur libero obcaecati aliquam ea minima repellat maiores.
-    Placeat cumque nesciunt et assumenda sapiente quisquam corporis amet sit id deserunt vel, accusamus dicta, quam qui
-    impedit delectus, autem animi nisi facere porro? Repudiandae, consectetur. Impedit quasi harum veritatis error.</p>
+<script>
+    // Initialize array of event images
+    window.EVENT_IMAGES = [
+        '/img/schedule/kegiatan1.png',
+        '/img/schedule/kegiatan2.png',
+        '/img/schedule/kegiatan3.png'
+    ];
+</script>

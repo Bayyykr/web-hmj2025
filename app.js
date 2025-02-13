@@ -11,21 +11,51 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 
 //db
-// const db = mysql.createConnection({
-//     host: "localhost",
-//     database: "hmj",
-//     user: "root",
-//     password: ""
-// })
+const db = mysql.createConnection({
+    host: "localhost",
+    database: "hmj",
+    user: "root",
+    password: ""
+})
+
+db.connect((err) => {
+    if (err) throw err
+    console.log('Database connected')
+})
+
+const sql = `
+    SELECT 
+        kegiatan.*,
+        TO_BASE64(gambar) as base64Image,
+        DATE_FORMAT(tanggal, '%d %b') as formatted_date,
+        YEAR(tanggal) as tahun
+    FROM kegiatan
+    WHERE tanggal >= CURDATE()
+    ORDER BY tanggal ASC
+    LIMIT 3
+`;
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'HMJ TI 2025',
-        layout: 'layouts/main-layout',
-        css: '/css/style.css',
-        js: '/js/script.js'
-    })
-})
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        
+        // Process the results
+        const events = result.map(item => ({
+            ...item,
+            base64Image: item.base64Image ? `data:image/jpeg;base64,${item.base64Image}` : null,
+            dateDisplay: `${item.formatted_date}\n${item.tahun}`
+        }));
+        
+        // Render the page with all required data
+        res.render("index", {
+            layout: 'layouts/main-layout',
+            css: '/css/style.css',
+            js: '/js/script.js',
+            events: events,
+            title: "HMJ TI 2025"
+        });
+    });
+});
 
 app.get('/about', (req, res) => {
     res.render('about', {
@@ -36,10 +66,6 @@ app.get('/about', (req, res) => {
     })
 })
 
-// db.connect((err) => {
-//     if (err) throw err
-//     console.log('Database connected')
-// })
 
 // const sql = `
 //         SELECT 
