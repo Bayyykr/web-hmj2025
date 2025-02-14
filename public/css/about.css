@@ -1,4 +1,83 @@
-body{
-    background-color: red;
+body {
     font-family: 'Poppins', sans-serif;
+}
+
+#about {
+    padding-top: 80px;
+    height: 130vh;
+    /* background-color: blueviolet; */
+    /* gap: 50px; */
+}
+
+.container-fluid {
+    gap: 54px;
+    padding-left: 40px;
+}
+
+.container-fluid .kiri {
+    /* background-color: blue; */
+    width: 550px;
+    position: relative;
+    top: 50px;
+}
+
+.container-fluid .kiri .vision h5 {
+    font-family: Roboto Serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 23.42px;
+    color: #4A5FD3;
+    margin-bottom: 24px;
+}
+
+.container-fluid .kiri .vision h2 {
+    font-family: Roboto Serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56.21px;
+    margin-bottom: 24px;
+}
+
+.container-fluid .kiri .vision P {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: justify;
+    color: #8B8B8B;
+    margin-bottom: 25px;
+}
+
+.container-fluid .kiri .mission h2 {
+    font-family: Roboto Serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56.21px;
+    margin-bottom: 25px;
+}
+
+.container-fluid .mission .misi {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    /* background-color: chartreuse; */
+    margin: 5px 0px;
+}
+
+.container-fluid .mission .misi img {
+    width: 28.11761474609375px;
+    height: 28.11761474609375px;
+}
+
+.container-fluid .mission .misi p {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8B8B8B;
+}
+
+.container-fluid .kanan img {
+    width: 666px;
+    /* background-color: red; */
 }
