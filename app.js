@@ -61,7 +61,16 @@ app.get('/about', (req, res) => {
         title: 'Halaman About',
         layout: 'layouts/main-layout',
         css: '/css/about.css',
-        js: '/js/about.js'
+        js: '/js/script.js'
+    })
+})
+
+app.get('/management', (req, res) => {
+    res.render('management', {
+        title: 'Halaman management',
+        layout: 'layouts/main-layout',
+        css: '/css/management.css',
+        js: '/js/management.js'
     })
 })
 
