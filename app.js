@@ -32,7 +32,6 @@ const sql = `
     FROM kegiatan
     WHERE tanggal >= CURDATE()
     ORDER BY tanggal ASC
-    LIMIT 3
 `;
 
 app.get('/', (req, res) => {

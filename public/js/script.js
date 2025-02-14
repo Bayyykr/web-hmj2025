@@ -99,13 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //kalender kegiatan
-const dots = document.querySelectorAll('.dot');
 const cardsContainer = document.querySelector('.cards-container');
 const cards = document.querySelectorAll('.schedule-card');
 const cardHeight = 113; // Card height (93px) + margin (20px)
 const maxScrollCount = 100; // Maximum number of scrolls
-const visibleCards = 3; // Number of visible cards at once
 const eventImage = document.querySelector('.image-section img');
+const paginationContainer = document.querySelector('.pagination');
 
 const images = window.EVENT_IMAGES || [];
 
@@ -117,6 +116,42 @@ let isPaused = false;
 let scrollCount = 0;
 let totalCards = 0;
 let currentImageIndex = 0;
+let numberOfOriginalCards = cards.length;
+
+// Function to create dots based on number of cards
+function createDots() {
+    // Clear existing dots
+    paginationContainer.innerHTML = '';
+    
+    // Create new dots based on original number of cards
+    for (let i = 0; i < numberOfOriginalCards; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        if (i === 0) dot.classList.add('active');
+        paginationContainer.appendChild(dot);
+    }
+
+    // Add click events to new dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (isAnimating) return;
+            
+            pauseAutoScroll();
+            
+            const currentCardSet = Math.floor(currentPosition / (cardHeight * numberOfOriginalCards));
+            const basePosition = currentCardSet * cardHeight * numberOfOriginalCards;
+            const targetPosition = basePosition + (index * cardHeight);
+            
+            currentDotIndex = index;
+            updateDots(index);
+            
+            smoothScroll(targetPosition, 800);
+            
+            setTimeout(resumeAutoScroll, 1000);
+        });
+    });
+}
 
 function preloadImages() {
     images.forEach(src => {
@@ -140,7 +175,7 @@ function setupCards() {
 
     const allCards = cardsContainer.querySelectorAll('.schedule-card');
     allCards.forEach((card, index) => {
-        if (index % 3 === 0) {
+        if (index % numberOfOriginalCards === 0) {
             card.classList.add('active');
         }
     });
@@ -149,8 +184,8 @@ function setupCards() {
 }
 
 function updateImage(newIndex) {
-    // Normalize the index to stay within bounds (0-2)
-    newIndex = newIndex % 3;
+    // Normalize the index to stay within bounds
+    newIndex = newIndex % numberOfOriginalCards;
     
     if (currentImageIndex === newIndex || newIndex >= images.length) return;
     
@@ -171,15 +206,14 @@ function updateImage(newIndex) {
 function updateCardColors() {
     const allCards = cardsContainer.querySelectorAll('.schedule-card');
     
-    // Normalize the visible index to stay within 0-2 range
-    const visibleIndex = Math.floor(currentPosition / cardHeight) % 3;
+    const visibleIndex = Math.floor(currentPosition / cardHeight) % numberOfOriginalCards;
     
     allCards.forEach(card => {
         card.classList.remove('active');
     });
     
     for (let i = 0; i < allCards.length; i++) {
-        if (i % 3 === visibleIndex) {
+        if (i % numberOfOriginalCards === visibleIndex) {
             allCards[i].classList.add('active');
         }
     }
@@ -213,7 +247,6 @@ function smoothScroll(targetPosition, duration) {
             isAnimating = false;
             scrollCount++;
 
-            // Only check for max scroll count during auto-scroll
             if (!isPaused && scrollCount >= maxScrollCount) {
                 pauseAutoScroll();
             }
@@ -235,8 +268,7 @@ function addCardListeners(card) {
 function nextSlide() {
     if (isPaused) return;
 
-    // Keep currentDotIndex within bounds (0-2)
-    currentDotIndex = (currentDotIndex + 1) % 3;
+    currentDotIndex = (currentDotIndex + 1) % numberOfOriginalCards;
     updateDots(currentDotIndex);
 
     const targetPosition = currentPosition + cardHeight;
@@ -264,32 +296,10 @@ function resumeAutoScroll() {
 }
 
 function updateDots(index) {
+    const dots = document.querySelectorAll('.dot');
     dots.forEach(d => d.classList.remove('active'));
     dots[index].classList.add('active');
 }
-
-// Modified dots click handler
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        if (isAnimating) return; // Prevent clicking while animating
-        
-        pauseAutoScroll();
-        
-        // Calculate the nearest multiple of 3 cards for smooth transitions
-        const currentCardSet = Math.floor(currentPosition / (cardHeight * 3));
-        const basePosition = currentCardSet * cardHeight * 3;
-        const targetPosition = basePosition + (index * cardHeight);
-        
-        currentDotIndex = index;
-        updateDots(index);
-        
-        // Use a longer duration for dot navigation to make it smoother
-        smoothScroll(targetPosition, 800);
-        
-        // Resume auto-scroll after a longer delay
-        setTimeout(resumeAutoScroll, 1000);
-    });
-});
 
 const style = document.createElement('style');
 style.textContent = `
@@ -299,8 +309,9 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Initialize everything
 preloadImages();
+createDots(); // Create dots based on number of cards
 cards.forEach(card => addCardListeners(card));
 setupCards();
-updateDots(0);
 startAutoScroll();
