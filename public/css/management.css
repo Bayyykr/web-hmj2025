@@ -2,12 +2,14 @@
     height: 100vh;
     position: relative;
     padding-top: 70px;
+    overflow: hidden;
 }
 
 #management .container-fluid {
     padding: 0;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 #management .container-fluid>img {
@@ -36,7 +38,7 @@
 
 .header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: white;
 }
 
@@ -59,23 +61,30 @@
 .carousel-container {
     /* background-color: blue; */
     position: relative;
-    padding: 0 4rem;
+    padding: 0 3.8rem;
     max-width: 1400px;
     margin: 0 auto;
+    overflow: hidden;
+    /* background-color: blueviolet; */
+    width: 1200px;
 }
 
 .carousel {
     display: flex;
-    overflow: hidden;
-    gap: 2rem;
+    /* overflow: visible; */
+    gap: 2.5rem;
     transition: transform 0.5s ease;
+    touch-action: pan-y pinch-zoom;
+    position: relative;
 }
 
 .team-member {
-    width: 300px;
+    flex: 0 0 auto;
     position: relative;
     overflow: hidden;
     aspect-ratio: 3/4;
+    flex-shrink: 0;
+    /* background-color: red; */
 }
 
 .team-member img {
@@ -83,19 +92,28 @@
     height: 90%;
     /* background-color: blue; */
     object-fit: cover;
-    padding-bottom: 70px;
+    padding-bottom: 80px;
+    position: relative;
+    bottom: 20px;
+    left: 5px;
 }
 
 .member-info {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -90px;
+    left: -13px;
     right: 0;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     color: white;
     transform: translateY(0);
     transition: transform 0.3s ease;
+    /* background-color: brown; */
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
 }
 
 .team-member:hover .member-info {
@@ -104,17 +122,22 @@
     -moz-transform: translateY(-5px);
     -ms-transform: translateY(-5px);
     -o-transform: translateY(-5px);
+    cursor: pointer;
 }
 
 .member-info h3 {
+    font-family: Poppins;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .member-info p {
-    color: #93c5fd;
+    /* color: #93c5fd; */
     font-size: 1.1rem;
+    font-weight: 400;
+    font-family: Poppins;
+    color: #E3E3E3;
 }
 
 .nav-button {
@@ -131,7 +154,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,17 +165,40 @@
     transform: translateY(-50%) scale(1.1);
 }
 
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 .prev {
-    left: 0;
+    left: 1rem;
 }
 
 .next {
-    right: 0;
+    right: 1rem;
 }
 
 @media (max-width: 1024px) {
     .team-member {
         min-width: calc(50% - 1rem);
+    }
+
+    .carousel-container {
+        width: 100%;
+        padding: 0 4rem;
+    }
+
+    .carousel::before,
+    .carousel::after {
+        width: 4rem;
+    }
+
+    .carousel::before {
+        left: -4rem;
+    }
+
+    .carousel::after {
+        right: -4rem;
     }
 }
 
@@ -164,4 +210,41 @@
     .carousel-container {
         padding: 0 2rem;
     }
+
+    .carousel::before,
+    .carousel::after {
+        width: 2rem;
+    }
+
+    .carousel::before {
+        left: -2rem;
+    }
+
+    .carousel::after {
+        right: -2rem;
+    }
+}
+
+.instagram-link {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.instagram-link img {
+    width: 25px;
+    transition: all 0.3s ease;
+}
+
+.instagram-link img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
