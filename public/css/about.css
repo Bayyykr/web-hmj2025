@@ -1,83 +1,158 @@
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 #about {
-    padding-top: 80px;
-    height: 130vh;
-    /* background-color: blueviolet; */
-    /* gap: 50px; */
+  padding-top: 80px;
+  height: 130vh;
+  /* background-color: blueviolet; */
+  /* gap: 50px; */
 }
 
 .container-fluid {
-    gap: 54px;
-    padding-left: 40px;
+  gap: 54px;
+  padding-left: 40px;
 }
 
 .container-fluid .kiri {
-    /* background-color: blue; */
-    width: 550px;
-    position: relative;
-    top: 50px;
+  /* background-color: blue; */
+  width: 550px;
+  position: relative;
+  top: 50px;
+  margin-left: 50px;
 }
 
 .container-fluid .kiri .vision h5 {
-    font-family: Roboto Serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 23.42px;
-    color: #4A5FD3;
-    margin-bottom: 24px;
+  font-family: Roboto Serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 23.42px;
+
+  color: #4a5fd3;
+  margin-bottom: 24px;
 }
 
 .container-fluid .kiri .vision h2 {
-    font-family: Roboto Serif;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 56.21px;
-    margin-bottom: 24px;
+  font-family: Roboto Serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56.21px;
+  margin-bottom: 24px;
 }
 
 .container-fluid .kiri .vision P {
-    font-family: Poppins;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: justify;
-    color: #8B8B8B;
-    margin-bottom: 25px;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify;
+  color: #8b8b8b;
+  margin-bottom: 25px;
 }
 
 .container-fluid .kiri .mission h2 {
-    font-family: Roboto Serif;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 56.21px;
-    margin-bottom: 25px;
+  font-family: Roboto Serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56.21px;
+  margin-bottom: 25px;
 }
 
 .container-fluid .mission .misi {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    /* background-color: chartreuse; */
-    margin: 5px 0px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  /* background-color: chartreuse; */
+  margin: 5px 0px;
 }
 
 .container-fluid .mission .misi img {
-    width: 28.11761474609375px;
-    height: 28.11761474609375px;
+  width: 28.11761474609375px;
+  height: 28.11761474609375px;
 }
 
 .container-fluid .mission .misi p {
-    font-family: Poppins;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #8B8B8B;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8b8b8b;
 }
 
 .container-fluid .kanan img {
-    width: 666px;
-    /* background-color: red; */
+  width: 555px;
+  margin: 60px;
+
+  /* background-color: red; */
+}
+
+#value {
+  height: 100vh;
+}
+
+#value .container h2 {
+  font-family: Roboto Serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56.21px;
+  margin-bottom: 25px;
+}
+/* Animasi dari kanan */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animasi dari bawah */
+@keyframes slideInBottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Class untuk elemen yang akan dianimasi */
+.animate-right {
+  animation: slideInRight 1s ease forwards;
+}
+
+.animate-bottom {
+  animation: slideInBottom 1s ease forwards;
+}
+
+/* Delay untuk setiap elemen */
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+.delay-5 {
+  animation-delay: 1s;
+}
+
+/* Pastikan elemen tersembunyi sebelum animasi mulai */
+.animate-right,
+.animate-bottom {
+  opacity: 0;
 }
