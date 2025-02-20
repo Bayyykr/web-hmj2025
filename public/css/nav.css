@@ -1,137 +1,146 @@
-.navbar{
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;   
-    height: 60px;
-    z-index: 100;
+.navbar {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  height: 60px;
+  z-index: 100;
+}
+.navbar-nav .nav-link {
+  font-size: 16px !important; /* sesuaikan dengan ukuran yang diinginkan */
+  font-family: Poppins; /* sesuaikan dengan font yang digunakan */
+  font-weight: 500; /* sesuaikan dengan ketebalan yang diinginkan */
 }
 
+.navbar {
+  font-size: 16px !important;
+  z-index: 1000; /* memastikan navbar selalu di atas konten lain */
+}
 .navbar .container-fluid {
-    width: Hug (1, 342px)px;
-    height: Hug (40px)px;
-    gap: 100px;
-    opacity: 0px;
+  width: Hug (1, 342px) px;
+  height: Hug (40px) px;
+  gap: 100px;
+  opacity: 0px;
 }
 
 .navbar .container-fluid .left a {
-    color: black;
-    font-size: 16px;
-    font-weight: 600;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .navbar .container-fluid .left img {
-    width: 69px;
-    position: relative;
-    left: 10px;
+  width: 69px;
+  position: relative;
+  left: 10px;
 }
 
 .navbar .container-fluid .left span {
-    color: #4A5FD3;
+  color: #4a5fd3;
 }
 
 .navbar .container-fluid .cnter {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .navbar .container-fluid .right {
-    background-color: black;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: relative;
-    right: 30px;
+  background-color: black;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  right: 30px;
 }
 
 .navbar-nav {
-    position: relative;
+  position: relative;
 }
 
 .navbar-nav .nav-item {
-    position: relative;
+  position: relative;
 }
 
 .navbar-nav .nav-link {
-    position: relative;
-    z-index: 2;
-    transition: color .3s ease;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 
 /* Animation element */
 .animation {
-    position: absolute;
-    height: 3px;
-    bottom: -5px;
-    background: #4A5FD3;
-    border-radius: 8px;
-    transition: all .5s ease 0s;
-    z-index: 1;
-    opacity: 1;
+  position: absolute;
+  height: 3px;
+  bottom: -5px;
+  background: #4a5fd3;
+  border-radius: 8px;
+  transition: all 0.5s ease 0s;
+  z-index: 1;
+  opacity: 1;
 }
 
 .navbar-nav .nav-item .nav-link.active {
-    color: #4A5FD3 !important; /* Match with animation color */
+  color: #4a5fd3 !important; /* Match with animation color */
 }
 
 /* Remove hover animations since we'll handle this with JavaScript */
 .start-home {
-    width: 80px;
-    left: 15px;
+  width: 80px;
+  left: 15px;
 }
 
 .navbar-nav .nav-item:nth-child(1):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(1) .nav-link.active ~ .animation {
-    width: 80px;
-    left: 15px;
+  width: 80px;
+  left: 15px;
 }
 
 .navbar-nav .nav-item:nth-child(2):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(2) .nav-link.active ~ .animation {
-    width: 80px;
-    left: 115px;
+  width: 80px;
+  left: 115px;
 }
 
 .navbar-nav .nav-item:nth-child(3):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(3) .nav-link.active ~ .animation {
-    width: 120px;
-    left: 215px;
+  width: 120px;
+  left: 215px;
 }
 
 .navbar-nav .nav-item:nth-child(4):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(4) .nav-link.active ~ .animation {
-    width: 90px;
-    left: 355px;
+  width: 90px;
+  left: 355px;
 }
 
 .navbar-nav .nav-item:nth-child(5):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(5) .nav-link.active ~ .animation {
-    width: 100px;
-    left: 465px;
+  width: 100px;
+  left: 465px;
 }
 
 .navbar-nav .nav-item:nth-child(6):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(6) .nav-link.active ~ .animation {
-    width: 80px;
-    left: 585px;
+  width: 80px;
+  left: 585px;
 }
 
 .navbar-nav .nav-item:nth-child(7):hover ~ .animation,
 .navbar-nav .nav-item:nth-child(7) .nav-link.active ~ .animation {
-    width: 80px;
-    left: 685px;
+  width: 80px;
+  left: 685px;
 }
 
 /* Ensure animation is visible */
 .navbar-nav:hover .animation {
-    opacity: 1;
+  opacity: 1;
 }
 
 .preload * {
-    transition: none !important;
+  transition: none !important;
 }
 
 .navbar.scrolled {
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
