@@ -72,5 +72,31 @@
 
       typeEffect(); // Mulai animasi
     </script>
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Ketika element masuk ke viewport
+            if (entry.isIntersecting) {
+              // Menambahkan class show untuk memulai animasi
+              if (entry.target.classList.contains("animate-right")) {
+                entry.target.classList.add("show");
+              }
+              if (entry.target.classList.contains("animate-bottom")) {
+                entry.target.classList.add("show");
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.2, // Animasi akan mulai ketika 20% element terlihat
+        }
+      );
+
+      // Mengamati semua element yang akan dianimasikan
+      document.querySelectorAll(".animate-right, .animate-bottom").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
