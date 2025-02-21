@@ -4,14 +4,14 @@
   z-index: 100;
 }
 .navbar-nav .nav-link {
-  font-size: 16px !important; /* sesuaikan dengan ukuran yang diinginkan */
-  font-family: Poppins; /* sesuaikan dengan font yang digunakan */
-  font-weight: 500; /* sesuaikan dengan ketebalan yang diinginkan */
+  font-size: 16px !important;
+  font-family: Poppins;
+  font-weight: 500;
 }
 
 .navbar {
   font-size: 16px !important;
-  z-index: 1000; /* memastikan navbar selalu di atas konten lain */
+  z-index: 1000;
 }
 .navbar .container-fluid {
   width: Hug (1, 342px) px;
@@ -80,10 +80,9 @@
 }
 
 .navbar-nav .nav-item .nav-link.active {
-  color: #4a5fd3 !important; /* Match with animation color */
+  color: #4a5fd3 !important;
 }
 
-/* Remove hover animations since we'll handle this with JavaScript */
 .start-home {
   width: 80px;
   left: 15px;
@@ -131,7 +130,6 @@
   left: 685px;
 }
 
-/* Ensure animation is visible */
 .navbar-nav:hover .animation {
   opacity: 1;
 }
