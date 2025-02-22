@@ -1,613 +1,623 @@
+::-webkit-scrollbar {
+  background: #b6b6b6;
+  border-radius: 5px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5fd3;
+  border-radius: 5px;
+  width: 10px;
+}
+
 body {
-    background: white;
+  background: white;
 }
 
 .maintitle {
   padding-top: 80px;
-    height: 15vh;
-    width: 100%;
+  height: 15vh;
+  width: 100%;
 }
 
 .maintitle .container {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .maintitle .container .judul {
-    color: rgb(0, 0, 0);
-    /* font-family: ; */
+  color: rgb(0, 0, 0);
+  /* font-family: ; */
 }
 
 .maintitle .container .barisabu {
-    width: 150px;
-    height: 1px;
-    background-color: rgb(128, 128, 128);
-    position: absolute;
-    margin-top: 70px;
+  width: 150px;
+  height: 1px;
+  background-color: rgb(128, 128, 128);
+  position: absolute;
+  margin-top: 70px;
 }
 
 .maintitle .container .barisbiru {
-    width: 80px;
-    height: 3px;
-    background-color: rgb(0, 4, 247);
-    position: absolute;
-    margin-top: 70px;
+  width: 80px;
+  height: 3px;
+  background-color: rgb(0, 4, 247);
+  position: absolute;
+  margin-top: 70px;
 }
 
 #navbar #pilihan span {
-    margin: 0px 20px;
-    cursor: pointer;
+  margin: 0px 20px;
+  cursor: pointer;
 }
 
 .berita .container-fluid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cardarea {
-    margin: 0 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .cardarea .card {
-    width: 25rem;
-    height: 30rem;
-    border: 1px solid rgb(134, 134, 134);
-    cursor: pointer;
-    transition: all 0.4s;
-    border-radius: 15px;
-    margin-top: 10px;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+  width: 25rem;
+  height: 30rem;
+  border: 1px solid rgb(134, 134, 134);
+  cursor: pointer;
+  transition: all 0.4s;
+  border-radius: 15px;
+  margin-top: 10px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 .cardarea .card:hover {
-    border: 1px solid blue;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
+  border: 1px solid blue;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
 }
 
 .cardarea .card .widget {
-    width: 100%;
+  width: 100%;
 }
 
 .cardarea .card .widget ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0px 10px;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0px 10px;
+  height: 100%;
 }
 
 .cardarea .card .widget ul li {
-    margin-right: 10px;
-    align-content: center;
+  margin-right: 10px;
+  align-content: center;
 }
 
 .cardarea .card .widget ul li svg {
-    width: 15px;
+  width: 15px;
 }
 
 .cardarea .card .widget ul li .tanggal {
-    width: 13px;
+  width: 13px;
 }
 
 .cardarea .card .foto {
-    height: 60%;
-    width: 95%;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  height: 60%;
+  width: 95%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .cardarea .card .foto img {
-    margin-top: 5px;
-    height: 100%;
-    border-radius: 20px;
-    width: 100%;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  margin-top: 5px;
+  height: 100%;
+  border-radius: 20px;
+  width: 100%;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .cardarea .card .description {
-    padding: 0px 10px;
-    height: 200px;
-    width: 100%;
+  padding: 0px 10px;
+  height: 200px;
+  width: 100%;
 }
 
 .cardarea .card .description h4 {
-    margin-top: 15px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  margin-top: 15px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardarea .card .description p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-info {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.pagination-btn {
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-btn:disabled {
+  color: #cccccc;
+}
+
+#bot {
+  height: 30vh;
+  width: 100%;
+}
+
+#bot .container {
+  border-top: 1px solid black;
+}
+
+#bot p {
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+#bot .main {
+  justify-content: space-around;
+  height: 230px;
+}
+
+#bot .quicklinks {
+  width: 375px;
+  height: 100%;
+  /* background-color: green; */
+  justify-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: right;
+}
+
+#bot .quicklinks h4 {
+  color: #000000;
+}
+
+#bot .quicklinks a {
+  text-decoration: none;
+  color: #444444;
+}
+
+#bot .quicklinks a:hover {
+  color: blue;
+}
+
+#bot .sosmed {
+  width: 370px;
+  height: 100%;
+  /* background-color: yellow; */
+  justify-items: center;
+  align-content: center;
+}
+
+#bot .sosmed h4 {
+  color: #000000;
+  /* margin-bottom: px; */
+}
+
+#bot .sosmed .icon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#bot .sosmed .icon .canvas {
+  width: 30px;
+  height: 30px;
+  align-content: center;
+  text-align: center;
+  background-color: #000000;
+  margin: 0 5px 42px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+#bot .sosmed .icon .canvas:hover {
+  animation: zoom-in-zoom-out 0.5s ease;
+  -webkit-animation: zoom-in-zoom-out 0.5s ease;
+  width: 30px;
+  height: 30px;
+  background-color: #0c52e7;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+
+#bot .contactinfo {
+  width: 370px;
+  height: 100%;
+  justify-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#bot .contactinfo h4 {
+  color: #000000;
+}
+
+#bot .contactinfo p {
+  margin: 0;
+  color: #444444;
+  font-family: "Lato", "Arial", sans-serif;
+  /* margin-bottom: 50px; */
+}
+
+#bot .contactinfo .email {
+  margin-bottom: 28px;
+}
+
+#bot .contactinfo svg {
+  margin: 0 8px 3px 0;
+}
+
+.copyright .copyr {
+  height: 100px;
+  border-top: 1px solid #444444;
+  text-align: center;
+}
+
+.copyright .copyr p {
+  color: #000000;
+  font-size: 16px;
+  margin-top: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (max-width: 400px) {
+  #navbar #pilihan span {
+    margin: 0px 8px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .cardarea .card {
+    width: 18rem;
+    height: 23rem;
+  }
+
+  .cardarea .card .description p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cardarea .card .widget {
+    font-size: 14px;
+  }
+
+  #bot {
+    height: 400px;
+    /* background: blueviolet; */
+    width: 100%;
+    /* background-color: aqua; */
+    font-size: 16px;
+  }
+
+  #bot .container {
+    border: none;
+  }
+
+  #bot .main {
+    height: 400px;
+    font-size: 16px;
+    /* background-color: #0c52e7; */
+  }
+
+  #bot .quicklinks {
+    height: auto;
+    /* background-color: green;  */
+    justify-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #bot .sosmed {
+    height: auto;
+    /* background-color: yellow;  */
+    justify-items: center;
+    align-content: center;
+  }
+
+  #bot .sosmed .icon .canvas {
+    margin: 0px 3px;
+  }
+
+  #bot .contactinfo {
+    height: auto;
+    justify-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    /* background-color: blueviolet; */
+  }
+
+  .copyright .copyr p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 768px) {
+  #navbar #pilihan span {
+    margin: 0px 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  #bot {
+    height: 400px;
+    /* background: blueviolet; */
+    width: 100%;
+    /* background-color: aqua; */
+  }
+
+  #bot .container {
+    border: none;
+  }
+
+  #bot .main {
+    height: 400px;
+    font-size: 16px;
+    /* background-color: #0c52e7; */
+  }
+
+  #bot .quicklinks {
+    height: auto;
+    /* background-color: green;  */
+    justify-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #bot .sosmed {
+    height: auto;
+    /* background-color: yellow;  */
+    justify-items: center;
+    align-content: center;
+  }
+
+  #bot .sosmed .icon .canvas {
+    margin: 0px 3px;
+  }
+
+  #bot .contactinfo {
+    height: auto;
+    justify-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    /* background-color: blueviolet; */
+  }
+
+  .copyright .copyr p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 880px) {
+  #navbar #pilihan span {
+    margin: 0px 15px;
+    cursor: pointer;
+    font-size: 26px;
+  }
+
+  .cardarea .card {
+    width: 35rem;
+    height: 40rem;
+  }
+
+  .cardarea .card .description p {
+    font-size: 24px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
+  .cardarea .card .description h4 {
+    font-size: 30px;
+  }
 
-.pagination-info {
-    margin: 0 15px;
-    font-weight: bold;
-}
+  .cardarea .card .widget {
+    font-size: 24px;
+  }
 
-.pagination-btn {
-    background-color: white;
-    color: blue;
-    border: none;
-    padding: 8px 16px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 4px;
-}
+  .cardarea .card .widget ul li svg {
+    width: 30px;
+  }
 
-.pagination-btn:disabled {
-    color: #cccccc;
-}
+  .cardarea .card .widget ul li .tanggal {
+    width: 26px;
+  }
 
-#bot {
-    height: 30vh;
+  #bot {
+    height: 400px;
+    /* background: blueviolet; */
     width: 100%;
-}
+    /* background-color: aqua; */
+  }
 
-#bot .container {
-    border-top: 1px solid black;
-}
+  #bot .container {
+    border: none;
+  }
 
-#bot p {
-    font-weight: 600;
-    font-family: sans-serif;
-}
+  #bot .main {
+    height: 400px;
+    font-size: 24px;
+    /* background-color: #0c52e7; */
+  }
 
-#bot .main {
-    justify-content: space-around;
-    height: 230px;
-}
+  #bot .main div {
+    margin: 10px 0px;
+  }
 
-#bot .quicklinks {
-    width: 375px;
-    height: 100%;
-    /* background-color: green; */
+  #bot .quicklinks {
+    height: auto;
+    /* background-color: green;  */
     justify-items: center;
     align-content: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: right;
-}
+    text-align: center;
+  }
 
-#bot .quicklinks h4 {
-    color: #000000;
-}
-
-#bot .quicklinks a {
-    text-decoration: none;
-    color: #444444;
-}
-
-#bot .quicklinks a:hover {
-    color: blue;
-}
-
-#bot .sosmed {
-    width: 370px;
-    height: 100%;
-    /* background-color: yellow; */
+  #bot .sosmed {
+    height: auto;
+    /* background-color: yellow;  */
     justify-items: center;
     align-content: center;
-}
+  }
 
-#bot .sosmed h4 {
-    color: #000000;
-    /* margin-bottom: px; */
-}
+  #bot .sosmed .icon .canvas {
+    margin: 0px 3px;
+  }
 
-#bot .sosmed .icon {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+  #bot .sosmed .icon .canvas {
+    width: 40px;
+    height: 40px;
+  }
 
-#bot .sosmed .icon .canvas {
-    width: 30px;
-    height: 30px;
-    align-content: center;
-    text-align: center;
-    background-color: #000000;
-    margin: 0 5px 42px 5px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
+  #bot .sosmed .icon .canvas:hover {
+    width: 40px;
+    height: 40px;
+  }
 
-#bot .sosmed .icon .canvas:hover {
-    animation: zoom-in-zoom-out 0.5s ease;
-    -webkit-animation: zoom-in-zoom-out 0.5s ease;
-    width: 30px;
-    height: 30px;
-    background-color: #0c52e7;
-}
-
-@keyframes zoom-in-zoom-out {
-    0% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-    }
-}
-
-#bot .contactinfo {
-    width: 370px;
-    height: 100%;
+  #bot .contactinfo {
+    height: auto;
     justify-items: center;
     align-content: center;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-#bot .contactinfo h4 {
-    color: #000000;
-}
-
-#bot .contactinfo p {
-    margin: 0;
-    color: #444444;
-    font-family: "Lato", "Arial", sans-serif;
-    /* margin-bottom: 50px; */
-}
-
-#bot .contactinfo .email {
-    margin-bottom: 28px;
-}
-
-#bot .contactinfo svg {
-    margin: 0 8px 3px 0;
-}
-
-.copyright .copyr {
-    height: 100px;
-    border-top: 1px solid #444444;
     text-align: center;
-}
+    /* background-color: blueviolet; */
+  }
 
-.copyright .copyr p {
-    color: #000000;
-    font-size: 16px;
-    margin-top: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+  .pagination {
+    font-size: 24px;
+  }
 
-@media screen and (max-width: 400px) {
-    #navbar #pilihan span {
-        margin: 0px 8px;
-        cursor: pointer;
-        font-size: 15px;
-    }
-
-    .cardarea .card {
-        width: 18rem;
-        height: 23rem;
-    }
-
-    .cardarea .card .description p {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .cardarea .card .widget {
-        font-size: 14px;
-    }
-
-    #bot {
-        height: 400px;
-        /* background: blueviolet; */
-        width: 100%;
-        /* background-color: aqua; */
-        font-size: 16px;
-    }
-
-    #bot .container {
-        border: none;
-    }
-
-    #bot .main {
-        height: 400px;
-        font-size: 16px;
-        /* background-color: #0c52e7; */
-    }
-
-    #bot .quicklinks {
-        height: auto;
-        /* background-color: green;  */
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-    }
-
-    #bot .sosmed {
-        height: auto;
-        /* background-color: yellow;  */
-        justify-items: center;
-        align-content: center;
-    }
-
-    #bot .sosmed .icon .canvas {
-        margin: 0px 3px;
-    }
-
-    #bot .contactinfo {
-        height: auto;
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        /* background-color: blueviolet; */
-    }
-
-    .copyright .copyr p {
-        font-size: 12px;
-    }
-}
-
-@media screen and (min-width: 400px) and (max-width: 768px) {
-    #navbar #pilihan span {
-        margin: 0px 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    #bot {
-        height: 400px;
-        /* background: blueviolet; */
-        width: 100%;
-        /* background-color: aqua; */
-    }
-
-    #bot .container {
-        border: none;
-    }
-
-    #bot .main {
-        height: 400px;
-        font-size: 16px;
-        /* background-color: #0c52e7; */
-    }
-
-    #bot .quicklinks {
-        height: auto;
-        /* background-color: green;  */
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-    }
-
-    #bot .sosmed {
-        height: auto;
-        /* background-color: yellow;  */
-        justify-items: center;
-        align-content: center;
-    }
-
-    #bot .sosmed .icon .canvas {
-        margin: 0px 3px;
-    }
-
-    #bot .contactinfo {
-        height: auto;
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        /* background-color: blueviolet; */
-    }
-
-    .copyright .copyr p {
-        font-size: 14px;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 880px) {
-    #navbar #pilihan span {
-        margin: 0px 15px;
-        cursor: pointer;
-        font-size: 26px;
-    }
-
-    .cardarea .card {
-        width: 35rem;
-        height: 40rem;
-    }
-
-    .cardarea .card .description p {
-        font-size: 24px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .cardarea .card .description h4 {
-        font-size: 30px;
-    }
-
-    .cardarea .card .widget {
-        font-size: 24px;
-    }
-
-    .cardarea .card .widget ul li svg {
-        width: 30px;
-    }
-
-    .cardarea .card .widget ul li .tanggal {
-        width: 26px;
-    }
-
-
-    #bot {
-        height: 400px;
-        /* background: blueviolet; */
-        width: 100%;
-        /* background-color: aqua; */
-    }
-
-
-    #bot .container {
-        border: none;
-    }
-
-    #bot .main {
-        height: 400px;
-        font-size: 24px;
-        /* background-color: #0c52e7; */
-    }
-
-    #bot .main div {
-        margin: 10px 0px;
-    }
-
-    #bot .quicklinks {
-        height: auto;
-        /* background-color: green;  */
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-    }
-
-    #bot .sosmed {
-        height: auto;
-        /* background-color: yellow;  */
-        justify-items: center;
-        align-content: center;
-    }
-
-    #bot .sosmed .icon .canvas {
-        margin: 0px 3px;
-    }
-
-    #bot .sosmed .icon .canvas {
-        width: 40px;
-        height: 40px;
-    }
-
-    #bot .sosmed .icon .canvas:hover {
-        width: 40px;
-        height: 40px;
-    }
-
-    #bot .contactinfo {
-        height: auto;
-        justify-items: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        /* background-color: blueviolet; */
-    }
-
-    .pagination {
-        font-size: 24px;
-    }
-
-    .copyright .copyr p {
-        font-size: 18px;
-    }
+  .copyright .copyr p {
+    font-size: 18px;
+  }
 }
 
 @media screen and (min-width: 880px) and (max-width: 1280px) {
-    #bot {
-        height: 230px;
-    }
+  #bot {
+    height: 230px;
+  }
 
-    #bot .quicklinks {
-        width: auto;
-    }
+  #bot .quicklinks {
+    width: auto;
+  }
 
-    #bot .sosmed {
-        width: auto;
-    }
+  #bot .sosmed {
+    width: auto;
+  }
 
-    #bot .contactinfo {
-        width: auto;
-    }
+  #bot .contactinfo {
+    width: auto;
+  }
 
-    #bot .contactinfo .email {
-        margin-bottom: 23px;
-    }
+  #bot .contactinfo .email {
+    margin-bottom: 23px;
+  }
 }
