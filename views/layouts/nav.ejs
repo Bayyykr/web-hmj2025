@@ -56,4 +56,37 @@
       <i class="ph ph-list"></i>
     </div>
   </div>
+
+  <div class="dropdown_menu">
+    <li class="nav-item2">
+      <a class="nav-link text-light text-dark" aria-current="page" href="/">Home</a>
+    </li>
+    <li class="nav-item2">
+      <a class="text-light text-dark" href="/about">About</a>
+    </li>
+    <li class="nav-item2">
+      <a class="text-light text-dark" href="/management">Management</a>
+    </li>
+    <li class="nav-item2">
+      <a class="text-light text-dark" href="#post">Post</a>
+    </li>
+    <li class="nav-item2">
+      <a class="text-light text-dark" href="#berita">News</a>
+    </li>
+    <li class="nav-item2">
+      <a class="text-light text-dark" href="/contact">Contact</a>
+    </li>
+  </div>
 </nav>
+
+<script>
+  const toggleIcon = document.querySelector(".toggle-icon");
+  const togglebtnIcon = document.querySelector(".toggle-icon i");
+  const dropdownMenu = document.querySelector(".dropdown_menu");
+  toggleIcon.onclick = function () {
+    dropdownMenu.classList.toggle("open");
+    const isOpen = dropdownMenu.classList.contains("open");
+
+    togglebtnIcon.classList = isOpen ? "ph ph-x" : "ph ph-list";
+  };
+</script>
