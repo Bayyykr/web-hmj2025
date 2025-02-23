@@ -18,14 +18,14 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="<%= css %>" />
     <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   </head>
   <body>
-    <%- include('nav') %> <%- body %>
-
+    <%- include('nav') %> <%- body %> <%- include('../partials/footer') %>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="<%= js %>"></script>
     <script src="/js/script.js"></script>

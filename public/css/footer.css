@@ -1,0 +1,20 @@
+footer {
+  background: linear-gradient(to bottom, #fffbf5 5%, #4a5fd3);
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  footer > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  footer > div {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+footer a:hover {
+  color: #cc5500 !important;
+}
