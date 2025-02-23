@@ -142,3 +142,21 @@
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.navbar .toggle-icon {
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .navbar .nav-link,
+  .navbar .container-fluid .right {
+    display: none;
+  }
+
+  .navbar .toggle-icon {
+    display: block;
+  }
+}

@@ -4,6 +4,7 @@ const mysql = require("mysql");
 const app = express();
 const port = 8000;
 
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 
@@ -71,6 +72,44 @@ app.get("/management", (req, res) => {
     layout: "layouts/main-layout",
     css: "/css/management.css",
     js: "/js/management.js",
+  });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact", {
+    title: "Halaman contact",
+    layout: "layouts/main-layout",
+    css: "/css/contact.css",
+    js: "/js/script.js",
+    success: req.query.success, // Untuk menampilkan pesan sukses
+    error: req.query.error, // Untuk menampilkan pesan error
+  });
+});
+
+app.post("/submit-contact", (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Validasi data tidak kosong
+  if (!name || !email || !message) {
+    return res.redirect("/contact?error=missing_fields");
+  }
+
+  // Validasi email
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email)) {
+    return res.redirect("/contact?error=invalid_email");
+  }
+
+  // Query untuk menyimpan ke database
+  const sql = "INSERT INTO contacts (name, email, message, created_at) VALUES (?, ?, ?, NOW())";
+  db.query(sql, [name, email, message], (err, result) => {
+    if (err) {
+      console.error("Error saving to database:", err);
+      return res.redirect("/contact?error=db_error");
+    }
+
+    // Redirect dengan parameter success
+    res.redirect("/contact?success=true");
   });
 });
 

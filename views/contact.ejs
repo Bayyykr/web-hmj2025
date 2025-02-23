@@ -1,0 +1,51 @@
+<section id="contact">
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="contact-text">
+        <h2>Get In Touch</h2>
+        <h1>Don't hesitate to contact us for more information.</h1>
+        <p>If you have questions, please contact us via the contact form or contact information on this page.</p>
+      </div>
+
+      <div class="contact-divider"></div>
+
+      <div class="contact-icons">
+        <a href="#"><img src="img/icon/call.png" alt="Phone" /></a>
+        <a href="#"><img src="/img/icon/ig.png" alt="Instagram" /></a>
+      </div>
+    </div>
+    <div class="form-container">
+      <!-- Alert Notifications -->
+      <% if (success) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Pesan Anda telah berhasil terkirim!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } %> <% if (error) { %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <% if (error === 'invalid_email') { %> Format email tidak valid <% } else if (error === 'missing_fields') { %> Semua field harus diisi <% } else if (error === 'db_error') { %> Terjadi kesalahan saat menyimpan data <% } else { %>
+        Terjadi kesalahan <% } %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% } %>
+
+      <!-- Form -->
+      <h2>Send us a message</h2>
+      <form action="/submit-contact" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Message" required></textarea>
+        </div>
+        <button type="submit" class="send-btn">SEND</button>
+      </form>
+    </div>
+  </div>
+</section>

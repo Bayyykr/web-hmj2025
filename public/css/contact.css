@@ -1,0 +1,227 @@
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-container {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  max-width: 800px;
+  width: 100%;
+}
+
+.contact-info {
+  width: 50%;
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(rgba(0, 0, 50, 0%), rgba(74, 95, 211, 100%)), url("../img/bg_gedung.png") no-repeat center/cover;
+}
+
+.contact-text {
+  margin-bottom: 20px;
+}
+
+.contact-info h2 {
+  font-size: clamp(16px, 2vw, 18px);
+  margin-bottom: 15px;
+}
+
+.contact-info h1 {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  font-size: clamp(12px, 1.5vw, 14px);
+}
+
+.contact-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3); /* Warna putih transparan */
+  margin: 20px 0; /* Memberikan jarak atas bawah */
+}
+
+.contact-icons {
+  display: flex;
+  flex-direction: column; /* Mengubah arah flex menjadi vertikal */
+  gap: 10px; /* Jarak antara icon */
+}
+
+.contact-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #9eacfb;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.contact-icons a:hover {
+  transform: scale(1.1);
+}
+
+.contact-icons img {
+  width: 20px;
+  height: 20px;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+}
+
+.form-container h2 {
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: clamp(12px, 1.5vw, 14px);
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.send-btn {
+  width: 100%;
+  padding: 12px;
+  background: #5a67d8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: clamp(14px, 1.5vw, 16px);
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #4c56b8;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .form-container {
+    width: 100%;
+  }
+
+  .contact-info {
+    min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #contact {
+    padding: 10px;
+  }
+
+  .contact-info {
+    padding: 20px;
+    min-height: 250px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .form-group input {
+    height: 40px;
+  }
+
+  .form-group textarea {
+    height: 80px;
+  }
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: relative;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-dismissible {
+  padding-right: 40px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: inherit;
+}
+
+.btn-close:hover {
+  opacity: 0.7;
+}
+
+/* Animasi untuk alert */
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+.fade.show {
+  opacity: 1;
+}
