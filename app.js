@@ -75,6 +75,45 @@ app.get("/management", (req, res) => {
   });
 });
 
+const artikelSql = `
+    SELECT
+        artikel.*,
+        kategori.nama_kategori,
+        TO_BASE64(picture) as base64Image
+    FROM artikel
+    JOIN kategori ON artikel.id_kategori = kategori.id_kategori
+`;
+
+app.get("/berita", (req, res) => {
+  db.query(artikelSql, (err, result) => {
+    if (err) {
+      console.error("Database error:", err);
+      return res.status(500).send("Database error occurred");
+    }
+
+    const datas = result.map((item) => ({
+      ...item,
+      base64Image: item.base64Image ? `data:image/jpeg;base64,${item.base64Image}` : null,
+    }));
+
+    res.render("berita", {
+      layout: "layouts/main-layout",
+      css: "/css/berita.css",
+      js: "/js/berita.js",
+      datas: datas, // This is crucial - passing the data to the template
+      title: "ARTIKEL",
+      formatDate: (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        });
+      },
+    });
+  });
+});
+
 app.get("/contact", (req, res) => {
   res.render("contact", {
     title: "Halaman contact",

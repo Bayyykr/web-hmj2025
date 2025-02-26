@@ -52,6 +52,7 @@ body {
 }
 
 .berita .container-fluid {
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
