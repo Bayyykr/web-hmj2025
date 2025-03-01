@@ -1,5 +1,5 @@
 footer {
-  background: linear-gradient(to bottom, #fffbf5 5%, #4a5fd3);
+  background: linear-gradient(to bottom, #fffbf5 1%, #4a5fd3);
   padding: 20px;
 }
 
@@ -16,5 +16,5 @@ footer {
 }
 
 footer a:hover {
-  color: #cc5500 !important;
+  color: #fff !important;
 }
