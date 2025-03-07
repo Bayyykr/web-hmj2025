@@ -10,7 +10,11 @@
   width: 10px;
 }
 
+html,
 body {
+  overflow-x: hidden;
+  width: 100%;
+
   font-family: "Poppins", sans-serif;
 }
 
@@ -28,10 +32,12 @@ body {
 }
 
 #hero .container-fluid .left {
+  transform: scale(0.8);
   width: 530px;
   height: 430px;
   position: relative;
   right: 120px;
+  margin-left: 50px;
 }
 
 .typing-container {
@@ -64,6 +70,8 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: #4a5fd3;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #hero .container-fluid .left h1 {
@@ -108,6 +116,7 @@ body {
 }
 
 #hero .container-fluid .right {
+  transform: scale(0.8);
   position: relative;
   top: 30px;
 }
@@ -332,6 +341,7 @@ body {
 
 /* VISION */
 #vision {
+  transform: scale(0.9);
   height: 80vh;
   /* background-color: blueviolet; */
 }
@@ -407,6 +417,7 @@ body {
 
 /* PROGRAM */
 #program {
+  transform: scale(0.95);
   height: 100vh;
 }
 
@@ -519,6 +530,7 @@ body {
 
 /* KALENDER KEGIATAN */
 #kalender-kegiatan {
+  transform: scale(0.85);
   height: 120vh;
 }
 
