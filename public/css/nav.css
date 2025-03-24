@@ -1,42 +1,54 @@
 .navbar {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   height: 60px;
-  z-index: 100;
+  z-index: 1000;
+  font-size: 16px !important;
+  position: relative; /* Add this to ensure it's positioned properly */
+  display: block !important; /* Force display */
+  background-color: white; /* Add a background color */
 }
 .navbar-nav .nav-link {
   font-size: 16px !important;
   font-family: Poppins;
   font-weight: 500;
 }
-
 .navbar {
   font-size: 16px !important;
   z-index: 1000;
 }
+
+.navbar * {
+  opacity: 1 !important;
+}
 .navbar .container-fluid {
-  width: Hug (1, 342px) px;
-  height: Hug (40px) px;
-  gap: 100px;
-  opacity: 0px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.navbar .container-fluid .left {
+  display: flex;
+  align-items: center;
+}
 .navbar .container-fluid .left a {
   color: black;
   font-size: 16px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .navbar .container-fluid .left img {
   width: 69px;
-  position: relative;
-  left: 10px;
+  margin-right: 10px;
 }
 
 .navbar .container-fluid .left span {
   color: #4a5fd3;
 }
-
-.navbar .container-fluid .cnter {
+.navbar .container-fluid .center {
   font-size: 14px;
   font-weight: 400;
 }
@@ -49,22 +61,26 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  position: relative;
-  right: 30px;
 }
 
 .navbar-nav {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-nav .nav-item {
   position: relative;
+  list-style: none;
 }
 
 .navbar-nav .nav-link {
   position: relative;
   z-index: 2;
   transition: color 0.3s ease;
+  text-decoration: none;
+  color: #000;
+  padding: 10px 15px;
 }
 
 /* Animation element */
@@ -78,7 +94,6 @@
   z-index: 1;
   opacity: 1;
 }
-
 .navbar-nav .nav-item .nav-link.active {
   color: #4a5fd3 !important;
 }
@@ -133,7 +148,6 @@
 .navbar-nav:hover .animation {
   opacity: 1;
 }
-
 .preload * {
   transition: none !important;
 }
@@ -152,47 +166,109 @@
 
 .dropdown_menu {
   display: none;
-  position: absolute;
-  right: 2rem;
+  position: fixed;
+  left: 0;
   top: 60px;
+  width: 100%;
   height: 0;
-  width: 300px;
-  background: rgba(255, 12, 12, 0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 10px;
+  background: white;
   overflow: hidden;
-  transition: height0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: height 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 }
 
 .dropdown_menu.open {
-  height: 240px;
+  height: auto;
 }
 
 .dropdown_menu li {
-  padding: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 15px 20px;
+  list-style: none;
+  border-bottom: 1px solid #efefef;
 }
 
+.dropdown_menu li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+}
+
+.dropdown_menu li:first-child {
+  background-color: #1d2f5f;
+}
+
+.dropdown_menu li:first-child a {
+  color: white;
+}
+
+.nav-item2 {
+  transition: background-color 0.3s ease;
+}
+
+.nav-item2:hover {
+  background-color: #f5f5f5;
+}
 @media (max-width: 992px) {
-  .navbar .nav-link,
-  .navbar .container-fluid .right {
+  /* Hide logo on mobile */
+  .navbar .container-fluid .left img {
     display: none;
   }
 
+  /* Hide the shopping cart (right div) */
+  .navbar .container-fluid .right {
+    display: none !important;
+  }
+
+  /* Restructure the container for proper positioning */
+  .navbar .container-fluid {
+    position: relative;
+    padding: 0 15px;
+  }
+
+  /* Make toggle icon visible and position it on the left */
   .navbar .toggle-icon {
-    display: block;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block !important; /* Force display */
+    color: black;
+    z-index: 100;
+    font-size: 24px; /* Make it larger */
   }
 
-  .dropdown_menu {
-    display: block;
+  /* Center the brand text */
+  .navbar .container-fluid .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
   }
-}
 
-@media (max-width: 576px) {
-  .dropdown_menu {
-    left: 2rem;
-    width: unset;
+  /* Adjust the navbar-brand to be centered */
+  .navbar .container-fluid .left .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Hide the navbar-toggler button (Bootstrap's default) */
+  .navbar-toggler {
+    display: none;
+  }
+
+  /* Ensure the icon inside toggle-icon is visible */
+  .navbar .toggle-icon i {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
