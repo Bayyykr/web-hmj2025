@@ -166,26 +166,27 @@
 
 .dropdown_menu {
   display: none;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 60px;
   width: 100%;
-  height: 0;
   background: white;
   overflow: hidden;
   transition: height 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 99;
+  border-radius: 10px; /* Tambahkan border-radius */
 }
 
 .dropdown_menu.open {
+  display: block;
   height: auto;
 }
 
 .dropdown_menu li {
-  padding: 15px 20px;
-  list-style: none;
-  border-bottom: 1px solid #efefef;
+  padding: 10px;
+  transition: background 0.3s ease;
+  border-radius: 10px; /* Opsional: Membulatkan tiap item */
 }
 
 .dropdown_menu li a {
@@ -213,62 +214,79 @@
   background-color: #f5f5f5;
 }
 @media (max-width: 992px) {
-  /* Hide logo on mobile */
-  .navbar .container-fluid .left img {
-    display: none;
+  /* Structure for mobile dropdown menu */
+  .navbar .container-fluid .left .navbar-brand {
+    margin-top: -10px;
+  }
+  .dropdown_menu {
+    background-color: white;
+    top: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  /* Hide the shopping cart (right div) */
-  .navbar .container-fluid .right {
-    display: none !important;
+  /* Style for menu items */
+  .dropdown_menu li {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0;
   }
 
-  /* Restructure the container for proper positioning */
-  .navbar .container-fluid {
+  .dropdown_menu li a {
+    padding: 12px 15px;
+    display: block;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Style for active menu item - blue background */
+  .dropdown_menu li:first-child {
+    background-color: #1d2f5f;
+  }
+
+  .dropdown_menu li:first-child a {
+    color: white;
+  }
+
+  /* Add bullet points */
+  .dropdown_menu li {
     position: relative;
-    padding: 0 15px;
+    list-style: none;
   }
 
-  /* Make toggle icon visible and position it on the left */
+  .dropdown_menu li::before {
+    content: "•";
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    color: #333;
+  }
+
+  .dropdown_menu li:first-child::before {
+    color: white;
+  }
+
+  /* Adjust the padding to accommodate the bullet */
+  .dropdown_menu li a {
+    padding-left: 20px;
+  }
+
+  /* Close button styling */
   .navbar .toggle-icon {
+    display: block;
     position: absolute;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    display: block !important; /* Force display */
-    color: black;
-    z-index: 100;
-    font-size: 24px; /* Make it larger */
   }
 
-  /* Center the brand text */
+  /* Center the logo text */
   .navbar .container-fluid .left {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    margin-top: 20px;
-    padding: 0;
-  }
-
-  /* Adjust the navbar-brand to be centered */
-  .navbar .container-fluid .left .navbar-brand {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
     justify-content: center;
   }
 
-  /* Hide the navbar-toggler button (Bootstrap's default) */
-  .navbar-toggler {
+  /* Hide standard shopping cart icon */
+  .navbar .container-fluid .right {
     display: none;
-  }
-
-  /* Ensure the icon inside toggle-icon is visible */
-  .navbar .toggle-icon i {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
   }
 }

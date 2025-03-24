@@ -49,41 +49,54 @@
         </svg>
       </a>
     </div>
+  </div>
+
+  <div class="container-fluid">
     <div class="toggle-icon">
       <i class="fas fa-bars"></i>
     </div>
-  </div>
-
-  <div class="dropdown_menu">
-    <li class="nav-item2">
-      <a class="nav-link text-light text-dark" aria-current="page" href="/">Home</a>
-    </li>
-    <li class="nav-item2">
-      <a class="text-light text-dark" href="/about">About</a>
-    </li>
-    <li class="nav-item2">
-      <a class="text-light text-dark" href="/management">Management</a>
-    </li>
-    <li class="nav-item2">
-      <a class="text-light text-dark" href="#post">Post</a>
-    </li>
-    <li class="nav-item2">
-      <a class="text-light text-dark" href="#berita">News</a>
-    </li>
-    <li class="nav-item2">
-      <a class="text-light text-dark" href="/contact">Contact</a>
-    </li>
+    <div class="dropdown_menu">
+      <li class="nav-item2">
+        <a class="nav-link text-light text-dark" aria-current="page" href="/">Home</a>
+      </li>
+      <li class="nav-item2">
+        <a class="text-light text-dark" href="/about">About</a>
+      </li>
+      <li class="nav-item2">
+        <a class="text-light text-dark" href="/management">Management</a>
+      </li>
+      <li class="nav-item2">
+        <a class="text-light text-dark" href="#post">Post</a>
+      </li>
+      <li class="nav-item2">
+        <a class="text-light text-dark" href="#berita">News</a>
+      </li>
+      <li class="nav-item2">
+        <a class="text-light text-dark" href="/contact">Contact</a>
+      </li>
+    </div>
   </div>
 </nav>
 
 <script>
-  const toggleIcon = document.querySelector(".toggle-icon");
-  const togglebtnIcon = document.querySelector(".toggle-icon i");
-  const dropdownMenu = document.querySelector(".dropdown_menu");
-  toggleIcon.onclick = function () {
-    dropdownMenu.classList.toggle("open");
-    const isOpen = dropdownMenu.classList.contains("open");
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleIcon = document.querySelector(".toggle-icon");
+    const togglebtnIcon = document.querySelector(".toggle-icon i");
+    const dropdownMenu = document.querySelector(".dropdown_menu");
 
-    togglebtnIcon.classList = isOpen ? "ph ph-x" : "ph ph-list";
-  };
+    if (toggleIcon && dropdownMenu) {
+      toggleIcon.addEventListener("click", function () {
+        dropdownMenu.classList.toggle("open");
+
+        // Ubah ikon toggle
+        if (dropdownMenu.classList.contains("open")) {
+          togglebtnIcon.classList.remove("fa-bars");
+          togglebtnIcon.classList.add("fa-times"); // Ganti ikon menjadi 'X'
+        } else {
+          togglebtnIcon.classList.remove("fa-times");
+          togglebtnIcon.classList.add("fa-bars"); // Kembali ke ikon awal
+        }
+      });
+    }
+  });
 </script>
