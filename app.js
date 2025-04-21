@@ -152,6 +152,15 @@ app.post("/submit-contact", (req, res) => {
   });
 });
 
+app.get("/departemen-keilmuan", (req, res) => {
+  res.render("departemen-keilmuan", {
+    title: "Departemen Keilmuan",
+    layout: "layouts/main-layout",
+    css: "/css/dep_keilmuan.css",
+    js: "/js/script.js",
+  });
+});
+
 // const sql = `
 //         SELECT
 //             artikel.*,

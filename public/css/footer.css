@@ -89,3 +89,78 @@ footer {
   font-size: 0.85rem;
   opacity: 0.8;
 }
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+    gap: 20px;
+  }
+
+  .footer-section {
+    padding: 0;
+    text-align: center; /* Center content */
+  }
+
+  .brand-section {
+    padding-right: 0;
+  }
+
+  .logo-container {
+    justify-content: center; /* Center logo and name */
+  }
+
+  .section-title {
+    text-align: center;
+    padding-bottom: 15px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .contact-section .footer-links,
+  .social-media-section .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .copyright {
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 0.8rem;
+  }
+
+  /* Ensure all sections are visible */
+  .navigation-section,
+  .contact-section,
+  .social-media-section {
+    display: block;
+  }
+}
+
+/* Additional mobile-specific adjustments */
+@media screen and (max-width: 480px) {
+  footer {
+    padding: 30px 15px 15px;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .organization-name {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .address {
+    text-align: center;
+  }
+}

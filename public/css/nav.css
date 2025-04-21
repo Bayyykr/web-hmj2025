@@ -13,8 +13,14 @@
   font-weight: 500;
 }
 .navbar {
-  font-size: 16px !important;
-  z-index: 1000;
+  transition: all 0.3s ease;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
 }
 
 .navbar * {
@@ -152,9 +158,36 @@
   transition: none !important;
 }
 
+/* .navbar.scrolled {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
 .navbar.scrolled {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled .container-fluid .left img {
+  width: 50px; /* Mengecilkan logo */
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .container-fluid .left a {
+  font-size: 14px; /* Mengecilkan teks logo */
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .navbar-nav .nav-link {
+  font-size: 14px; /* Mengecilkan teks navigasi */
+  padding: 5px 10px; /* Mengurangi padding */
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .container-fluid .right {
+  width: 30px; /* Mengecilkan tombol keranjang */
+  height: 30px;
+  transition: all 0.3s ease;
 }
 
 .navbar .toggle-icon {
