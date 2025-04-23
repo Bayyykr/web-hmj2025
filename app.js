@@ -157,7 +157,7 @@ app.get("/departemen-keilmuan", (req, res) => {
     title: "Departemen Keilmuan",
     layout: "layouts/main-layout",
     css: "/css/dep_keilmuan.css",
-    js: "/js/script.js",
+    js: "/js/management.js",
   });
 });
 
