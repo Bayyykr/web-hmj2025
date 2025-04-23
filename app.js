@@ -161,6 +161,42 @@ app.get("/departemen-keilmuan", (req, res) => {
   });
 });
 
+app.get("/departemen-perhubungan", (req, res) => {
+  res.render("departemen-perhubungan", {
+    title: "Departemen Perhubungan",
+    layout: "layouts/main-layout",
+    css: "/css/dep_perhubungan.css",
+    js: "/js/management.js",
+  });
+});
+
+app.get("/departemen-administrasi", (req, res) => {
+  res.render("departemen-administrasi", {
+    title: "Departemen Administrasi",
+    layout: "layouts/main-layout",
+    css: "/css/dep_administrasi.css",
+    js: "/js/management.js",
+  });
+});
+
+app.get("/departemen-kominfo", (req, res) => {
+  res.render("departemen-kominfo", {
+    title: "Departemen Kominfo",
+    layout: "layouts/main-layout",
+    css: "/css/dep_kominfo.css",
+    js: "/js/management.js",
+  });
+});
+
+app.get("/departemen-kewirausahaan", (req, res) => {
+  res.render("departemen-kewirausahaan", {
+    title: "Departemen Kewirausahaan",
+    layout: "layouts/main-layout",
+    css: "/css/dep_kewirausahaan.css",
+    js: "/js/management.js",
+  });
+});
+
 // const sql = `
 //         SELECT
 //             artikel.*,
